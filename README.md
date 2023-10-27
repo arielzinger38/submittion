@@ -13,9 +13,9 @@ Dependencies:<br />
 
 Login Pull & Build Docker Image if needed:
 ```
-   docker login <your-registry> 
-   docker pull arielzinger12/ariel-image-1:latest
-   docker build -t arielzinger12/ariel-image-1:latest .
+docker login <your-registry> 
+docker pull arielzinger12/ariel-image-1:latest
+docker build -t arielzinger12/ariel-image-1:latest .
 ```
   
 (you can also just login to docker hub if you dont want to build the image locally in order for the kubernetes to pull the image from the repo)
@@ -23,12 +23,12 @@ Login Pull & Build Docker Image if needed:
 Deploy Kubernetes Application:
  ```
  pull from git
-  install minikube - https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
-  minikube start
-  kubectl apply -f deployment.yaml
-  kubectl apply -f service.yaml
-  minikube service submittion-service (keep terminal open)
-  minikube tunnel (keep terminal open)
+install minikube - https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+minikube start
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+minikube service submittion-service (keep terminal open)
+minikube tunnel (keep terminal open)
 ```
 
 Access: 
@@ -41,7 +41,7 @@ Run Selenium Tests:
 The tests are running using selenium on Mozilla-FireFox
 
 Install Python dependencies and selenium + Mozilla-FireFox Browser (if needed!!!)
-  python tesenium.py
+python tesenium.py
 ```
 
 WARNING!!!

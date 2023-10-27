@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: submittion-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: submittion
+  template:
+    metadata:
+      labels:
+        app: submittion
+    spec:
+      containers:
+      - name: submittion-container
+        image: arielzinger12/ariel-image-1:latest
+        resources:
+          limits:
+            memory: "256Mi"  # Maximum memory limit
+            cpu: "200m"       # Maximum CPU limit (200 milliCPU)
+          requests:
+            memory: "128Mi"  # Minimum memory request
+            cpu: "100m"       # Minimum CPU request (100 milliCPU)

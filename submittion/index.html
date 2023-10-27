@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date, Time, and Machine Name</title>
+    <script>
+        // JavaScript code to display date, time, and machine name
+        document.addEventListener("DOMContentLoaded", function() {
+            var dateElement = document.getElementById("date");
+            var machineElement = document.getElementById("machine");
+            var now = new Date();
+            dateElement.textContent = "Current Date and Time: " + now.toLocaleString();
+            
+            // Fetch machine name from the machineName.env file
+            fetch('/machineName.env')
+                .then(response => response.text())
+                .then(data => {
+                    machineElement.textContent = "Machine Name: " + data.trim();
+                })
+                .catch(error => {
+                    machineElement.textContent = "Machine Name: Error fetching machineName.env";
+                });
+        });
+    </script>
+</head>
+<body>
+    <h1>Current Date, Time, and Machine Name</h1>
+    <p id="date"></p>
+    <p id="machine"></p>
+</body>
+</html>

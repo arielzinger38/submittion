@@ -9,10 +9,9 @@ Dependencies:
   Python
   Selenium
 
-Login Pull & Build Docker Image if needed:
-  ``` docker login <your-registry> ```
-  ``` docker pull arielzinger12/ariel-image-1:latest ```
-  ``` docker build -t arielzinger12/ariel-image-1:latest . ```
+Login Pull & Build Docker Image if needed:``` docker login <your-registry> 
+   docker pull arielzinger12/ariel-image-1:latest
+   docker build -t arielzinger12/ariel-image-1:latest . ```
   
 (you can also just login to docker hub if you dont want to build the image locally in order for the kubernetes to pull the image from the repo)
 

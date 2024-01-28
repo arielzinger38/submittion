@@ -6,14 +6,14 @@ resource "aws_launch_configuration" "psifas" {
   name          = "psifas_config"
 
   image_id      = "ami-0de006b72d983a5a5"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
 
   lifecycle {
     create_before_destroy = true
   }
 }
 
-resource "aws_autoscaling_group" "psifas_asg" {
+resource "aws_autoscaling_group" "psifas" {
   name                 = "psifas_asg"
   desired_capacity     = 1
   max_size             = 10
@@ -42,7 +42,6 @@ resource "aws_autoscaling_policy" "cpu-scaling" {
   scaling_adjustment        = 1
   cooldown                  = 300  # Adjust as needed
   adjustment_type           = "ChangeInCapacity"
-  estimated_instance_warmup = 300  # Adjust as needed
 
 
   target_tracking_configuration {
@@ -53,5 +52,5 @@ resource "aws_autoscaling_policy" "cpu-scaling" {
     target_value = 50.0
   }
 
-  autoscaling_group_name = aws_autoscaling_group.psifas_asg.name
+  autoscaling_group_name = aws_autoscaling_group.psifas.name
 }

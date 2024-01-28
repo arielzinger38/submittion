@@ -42,16 +42,11 @@ terraform apply
 Confirm with yes when prompted.
 
 Running the Lambda Functions
-CloudWatch Metric Publishing Function:
+CloudWatch Metric Publishing Function: scaling-monitor
+Runs every 2 hours and publishes metrics to cloudwatch
 
 Open the AWS Lambda console.
-Locate the function named AutoScalingMetricsPublisher.
-Test the function by configuring a new test event. Modify the event payload as needed.
-Execute the test event to trigger the function and publish metrics to CloudWatch.
-Metric Retrieval Function:
-
-Open the AWS Lambda console.
-Locate the function named AutoScalingMetricRetrieval.
+Locate the function named metrics-api.
 Test the function by configuring a new test event. Modify the event payload with the instance ID of your EC2 instance.
 Execute the test event to trigger the function and retrieve historical and just-in-time metrics.
 Cleanup

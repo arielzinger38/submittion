@@ -16,28 +16,18 @@ Terraform: Install Terraform on your local machine.
 Terraform Setup
 Clone the repository:
 
-
-Copy code
 git clone https://github.com/arielzinger38/submittion/
 Change into the project directory:
 
-
-Copy code
 cd autoscaling-monitoring
 Initialize Terraform:
 
-
-Copy code
 terraform init
 Create a Terraform execution plan:
 
-
-Copy code
 terraform plan
 Apply the Terraform configuration:
 
-
-Copy code
 terraform apply
 Confirm with yes when prompted.
 
@@ -49,10 +39,10 @@ Open the AWS Lambda console.
 Locate the function named metrics-api.
 Test the function by configuring a new test event. Modify the event payload with the instance ID of your EC2 instance.
 Execute the test event to trigger the function and retrieve historical and just-in-time metrics.
+
 Cleanup
 To avoid incurring unnecessary costs, remember to destroy the resources created by Terraform when you are done:
 
-Copy code
 terraform destroy
 Confirm with yes when prompted.
 

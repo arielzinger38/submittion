@@ -61,4 +61,4 @@ Copy code
 terraform destroy
 Confirm with yes when prompted.
 
-
+NOTE i have added the autoscaling Target Tracking Policy manually in the console after running the terraform apply

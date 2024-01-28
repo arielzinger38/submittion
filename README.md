@@ -57,7 +57,6 @@ Execute the test event to trigger the function and retrieve historical and just-
 Cleanup
 To avoid incurring unnecessary costs, remember to destroy the resources created by Terraform when you are done:
 
-bash
 Copy code
 terraform destroy
 Confirm with yes when prompted.

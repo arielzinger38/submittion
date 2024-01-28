@@ -13,13 +13,14 @@ resource "aws_launch_configuration" "psifas" {
   }
 }
 
-resource "aws_autoscaling_group" "psifas" {
+resource "aws_autoscaling_group" "psifas_asg" {
   name                 = "psifas_asg"
   desired_capacity     = 1
   max_size             = 10
   min_size             = 1
   health_check_type    = "EC2"
   force_delete         = true
+  
   
   vpc_zone_identifier  = ["subnet-05fb22ce3ba0d2ec0", "subnet-0f01897213d3af370", "subnet-0f18fe089c34b0441"] 
   launch_configuration = aws_launch_configuration.psifas.id
@@ -37,11 +38,11 @@ resource "aws_autoscaling_group" "psifas" {
   }
 }
 
-resource "aws_autoscaling_policy" "cpu-scaling" {
-  name                      = "cpu-scaling"
-  scaling_adjustment        = 1
-  cooldown                  = 300  # Adjust as needed
-  adjustment_type           = "ChangeInCapacity"
+resource "aws_autoscaling_policy" "cpu_scaling" {
+  name                = "cpu-scaling"
+  cooldown            = 300  # Adjust as needed
+  adjustment_type     = "TargetTrackingScaling"
+  scaling_adjustment  = 1   # Add 1 instance when triggered
 
 
   target_tracking_configuration {
@@ -52,5 +53,5 @@ resource "aws_autoscaling_policy" "cpu-scaling" {
     target_value = 50.0
   }
 
-  autoscaling_group_name = aws_autoscaling_group.psifas.name
+  autoscaling_group_name = aws_autoscaling_group.psifas_asg.name
 }

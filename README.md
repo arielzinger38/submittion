@@ -14,20 +14,16 @@ Prerequisites
 AWS Account: Ensure you have an AWS account with the necessary permissions.
 Terraform: Install Terraform on your local machine.
 Terraform Setup
-Clone the repository:
 
+Clone the repository:
 git clone https://github.com/arielzinger38/submittion/
 Change into the project directory:
-
-cd autoscaling-monitoring
+cd submittion
 Initialize Terraform:
-
 terraform init
 Create a Terraform execution plan:
-
 terraform plan
 Apply the Terraform configuration:
-
 terraform apply
 Confirm with yes when prompted.
 

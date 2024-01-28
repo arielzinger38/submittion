@@ -16,27 +16,27 @@ Terraform: Install Terraform on your local machine.
 Terraform Setup
 Clone the repository:
 
-bash
+
 Copy code
 git clone https://github.com/arielzinger38/submittion/
 Change into the project directory:
 
-bash
+
 Copy code
 cd autoscaling-monitoring
 Initialize Terraform:
 
-bash
+
 Copy code
 terraform init
 Create a Terraform execution plan:
 
-bash
+
 Copy code
 terraform plan
 Apply the Terraform configuration:
 
-bash
+
 Copy code
 terraform apply
 Confirm with yes when prompted.

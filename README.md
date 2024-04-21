@@ -21,11 +21,13 @@ kubernetes cluster installed using kubeadm/minikube
 to run locally:
 install docker client
 install kubeadm/minikube 
-download the files needed (SignalPet directory)
+download the files needed (submittion directory) 
+git clone https://github.com/arielzinger38/submittion.git 
+verify cloned repo downloaded
 run and verify docker client and dockerhub connection valid (docker login)
 run minikube start
 apply all manifest files there are 4 e.g: kubectl apply -f web-server-deplyment.yaml
 verify all pods are running (kubectl get pods -o wide)
 
 did only half of the bonus the entire state of the system is resilient to restarts by having a persistent storage
-didnt get to Helm and terraform could not decide on supplier and usage 
+didnt get to Helm and terraform could not decide on supplier and usage

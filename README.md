@@ -1,4 +1,5 @@
 Submittion for SignalPet 
+
 Compromises:
 State Management:
 For simplicity, we'll store images and queue data in-memory within each respective service.

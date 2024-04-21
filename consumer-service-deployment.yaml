@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer-service
+  template:
+    metadata:
+      labels:
+        app: consumer-service
+    spec:
+      containers:
+      - name: consumer-service
+        image: arielzinger12/consumer-service-image:latest
+        env:
+        - name: REDIS_HOST
+          value: "localhost"
+        - name: REDIS_PORT
+          value: "6379"
+        - name: REDIS_DB
+          value: "0"
+        - name: QUEUE_NAME
+          value: "image_queue"
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: storage-volume
+          mountPath: /app/uploads
+        imagePullPolicy: Always
+      volumes:
+      - name: storage-volume
+        persistentVolumeClaim:
+          claimName: storage-pvc

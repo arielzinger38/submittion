@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: queue-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: queue-processor
+        image: arielzinger12/queue-service-image:latest
+        command: ["python", "queue_processor.py"]
+      restartPolicy: Never
+  backoffLimit: 3

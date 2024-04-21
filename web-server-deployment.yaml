@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-server
+  template:
+    metadata:
+      labels:
+        app: web-server
+    spec:
+      containers:
+      - name: web-server
+        image: arielzinger12/web-server-image:latest
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: storage-volume
+          mountPath: /app/uploads
+        imagePullPolicy: Always
+      volumes:
+      - name: storage-volume
+        persistentVolumeClaim:
+          claimName: storage-pvc
